@@ -17,10 +17,14 @@
 </form>
 
 <p id="result">This text will be replaced </p>
+<div class="container">
+    <img id="myImg" style="width: 200px;height: 200px" alt="tiger" onclick="newImage()" src="tiger.jpg">
 
+</div>
 <script> 
 correct = 0
 wrong = 0
+usingImage = 1
 function processPhrase (){
     console.log("Getting form values")
     value1 = document.getElementById("form1_secret_phrase").value
@@ -35,6 +39,25 @@ function processPhrase (){
         wrong = wrong + 1
         out.innerHTML ="wrong "+wrong
         alert("Access allowed")
+    }
+}
+function newImage(){
+    switch(usingImage){
+        case 1: {
+            document.getElementById("myImg").src = "monkey.jpg";
+            usingImage = usingImage+1
+            break;
+        }
+        case 2:{
+            document.getElementById("myImg").src = "elephant.jpg"; 
+            usingImage = usingImage+1
+            break
+        }
+        case 3:{
+            document.getElementById("myImg").src = "tiger.jpg"; 
+            usingImage = usingImage+1
+            break
+        }  
     }
 }
 function resolveForm (){
